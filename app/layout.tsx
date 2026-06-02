@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { BookOpenText } from "lucide-react";
+import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,28 +13,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <div className="app-shell">
-          <header className="topbar">
-            <div className="topbar-inner">
-              <Link href="/dashboard" className="brand" aria-label="Pith dashboard">
-                <span className="brand-mark">
-                  <BookOpenText size={19} />
-                </span>
-                <span>Pith</span>
-              </Link>
-              <nav className="nav-actions" aria-label="Primary navigation">
-                <span>Dev workspace</span>
-                <Link className="button secondary" href="/dashboard">
-                  Dashboard
-                </Link>
-              </nav>
-            </div>
-          </header>
-          {children}
-        </div>
-      </body>
-    </html>
+    <ClerkProvider
+      afterSignOutUrl="/sign-in"
+      signInUrl="/sign-in"
+      signUpUrl="/sign-up"
+      signInFallbackRedirectUrl="/dashboard"
+      signUpFallbackRedirectUrl="/dashboard"
+    >
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    </ClerkProvider>
   );
 }

@@ -9,7 +9,9 @@ import {
   FilePenLine,
   Loader2
 } from "lucide-react";
-import { getStatusLabel, samplePacks } from "@/lib/domain/packs";
+import { getCurrentUser } from "@/lib/auth";
+import { getStatusLabel } from "@/lib/domain/packs";
+import { getPackForUser } from "@/lib/repositories/packs";
 
 type PackPageProps = {
   params: Promise<{
@@ -31,14 +33,15 @@ function StepIcon({ status }: { status: string }) {
 
 export default async function PackPage({ params }: PackPageProps) {
   const { packId } = await params;
-  const pack = samplePacks.find((item) => item.id === packId);
+  const user = await getCurrentUser();
+  const pack = await getPackForUser(packId, user.id);
 
   if (!pack) {
     notFound();
   }
 
   return (
-    <main className="page">
+    <main className="page page-fade-in">
       <div style={{ marginBottom: 20 }}>
         <Link className="button ghost" href="/dashboard">
           <ArrowLeft size={17} />
@@ -107,20 +110,24 @@ export default async function PackPage({ params }: PackPageProps) {
           <div className="rail-section">
             <p className="eyebrow">Sources</p>
             <h2>{pack.sourceLinks.length} blog links</h2>
-            <div className="source-list">
-              {pack.sourceLinks.map((source) => (
-                <div className="source-item" key={source.id}>
-                  <div className="pack-row-top">
-                    <h3 className="pack-title">{source.title || source.url}</h3>
-                    <span className={`badge ${source.status}`}>{source.status}</span>
+            {pack.sourceLinks.length === 0 ? (
+              <p className="helper">No sources yet. Add links from the dashboard.</p>
+            ) : (
+              <div className="source-list">
+                {pack.sourceLinks.map((source) => (
+                  <div className="source-item" key={source.id}>
+                    <div className="pack-row-top">
+                      <h3 className="pack-title">{source.title || source.url}</h3>
+                      <span className={`badge ${source.status}`}>{source.status}</span>
+                    </div>
+                    <a className="source-url" href={source.url} target="_blank" rel="noreferrer">
+                      {source.url}
+                      <ExternalLink size={13} />
+                    </a>
                   </div>
-                  <a className="source-url" href={source.url} target="_blank" rel="noreferrer">
-                    {source.url}
-                    <ExternalLink size={13} />
-                  </a>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="rail-section">
