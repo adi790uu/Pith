@@ -4,28 +4,33 @@ Pith turns blog links into structured, editable study notes and beautifully rend
 
 ## Phase 1
 
-This repository currently implements the foundation UI:
+Foundation UI: Next.js App Router scaffold, dashboard, pack detail, Drizzle schema, shared domain models.
 
-- Next.js App Router TypeScript scaffold
-- Dashboard for creating multi-link packs
-- Pack detail page with source list, job status, editor preview, and PDF action placeholder
-- Shared domain models for packs, sources, and job steps
-- Drizzle schema for the planned authenticated project database
+## Phase 2
 
-## Phase 2 (current)
-
-Persistence and authentication are now wired:
+Persistence and authentication wired:
 
 - Clerk authentication with sign-in, sign-up, and protected dashboard routes
 - Drizzle ORM connected to Neon Postgres
 - Dashboard and pack detail pages are database-backed and scoped to the signed-in user
 - Create-pack server action with Zod validation and persisted source rows
 
+## Phase 3 (current)
+
+Source ingestion via Trigger.dev:
+
+- `extract-pack-sources` Trigger.dev task fetches each URL, parses readable content, title, metadata, and image references
+- Extracted payload persisted on `source_links.extracted_content`
+- Pack status transitions through `queued → extracting → generating` (or `failed`) as the job runs
+- Dashboard and pack detail poll for live status while a pack is in a non-terminal state
+
 ## Development
 
 ```bash
 npm install
 npm run dev
+# In a second terminal (Phase 3+), start the Trigger.dev dev runner:
+npx trigger.dev@latest dev
 ```
 
 Then open `http://localhost:3000/dashboard`.
@@ -38,14 +43,16 @@ Create `.env.local` at the repo root:
 # Clerk — https://dashboard.clerk.com
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_...
 CLERK_SECRET_KEY=sk_test_...
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
-NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/dashboard
-NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/dashboard
 
 # Neon — https://console.neon.tech
 DATABASE_URL=postgres://...neon.tech/neondb?sslmode=require
+
+# Trigger.dev — https://cloud.trigger.dev
+TRIGGER_SECRET_KEY=tr_dev_...
+TRIGGER_PROJECT_REF=proj_...
 ```
+
+If `TRIGGER_SECRET_KEY` is unset, the create-pack action skips enqueueing and the pack stays `queued`. Set it and run `npx trigger.dev@latest dev` for ingestion to actually run.
 
 ### Database
 
@@ -62,4 +69,16 @@ npm run db:migrate
 npm run db:push
 ```
 
-Phase 3 and beyond (Trigger.dev, OpenAI, Blob storage) introduce additional environment variables as those services come online.
+### Trigger.dev
+
+Tasks live in `trigger/` and are registered through `trigger.config.ts`. `TRIGGER_PROJECT_REF` should match the project you created at https://cloud.trigger.dev.
+
+```bash
+# Run tasks locally (watches for changes)
+npx trigger.dev@latest dev
+
+# Deploy tasks to the production environment
+npx trigger.dev@latest deploy
+```
+
+Phase 4 and beyond (OpenAI generation, editing, Blob storage, PDF export) will introduce additional environment variables as those services come online.

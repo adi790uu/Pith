@@ -1,0 +1,30 @@
+{
+  "configPath": "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/trigger.config.mjs",
+  "customConditions": [
+  ],
+  "prompts": [
+  ],
+  "queues": [
+  ],
+  "runtime": "node",
+  "runtimeVersion": "24.4.1",
+  "tasks": [
+    {
+      "entryPoint": "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/trigger/extract-pack.mjs",
+      "filePath": "trigger/extract-pack.ts",
+      "id": "extract-pack-sources",
+      "maxDuration": 600,
+      "retry": {
+        "factor": 2,
+        "maxAttempts": 3,
+        "maxTimeoutInMs": 30000,
+        "minTimeoutInMs": 1000,
+        "randomize": true
+      }
+    }
+  ],
+  "timings": {
+    "trigger/extract-pack.ts": 43.476291
+  },
+  "workerEntryPoint": "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/node_modules/trigger.dev/dist/esm/entryPoints/dev-run-worker.mjs"
+}

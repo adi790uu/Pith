@@ -9,9 +9,10 @@ import {
   FilePenLine,
   Loader2
 } from "lucide-react";
+import { LiveRefresh } from "@/components/live-refresh";
 import { getCurrentUser } from "@/lib/auth";
 import { getStatusLabel } from "@/lib/domain/packs";
-import { getPackForUser } from "@/lib/repositories/packs";
+import { getPackForUser, isTerminalPackStatus } from "@/lib/repositories/packs";
 
 type PackPageProps = {
   params: Promise<{
@@ -42,6 +43,7 @@ export default async function PackPage({ params }: PackPageProps) {
 
   return (
     <main className="page page-fade-in">
+      <LiveRefresh enabled={!isTerminalPackStatus(pack.status)} />
       <div style={{ marginBottom: 20 }}>
         <Link className="button ghost" href="/dashboard">
           <ArrowLeft size={17} />

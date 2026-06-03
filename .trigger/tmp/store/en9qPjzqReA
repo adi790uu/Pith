@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../trigger.config.ts"],
+  "sourcesContent": ["import { defineConfig } from \"@trigger.dev/sdk/v3\";\n\nexport default defineConfig({\n  project: process.env.TRIGGER_PROJECT_REF ?? \"proj_pith_local\",\n  runtime: \"node\",\n  logLevel: \"info\",\n  maxDuration: 300,\n\n  retries: {\n    enabledInDev: true,\n    default: {\n      maxAttempts: 3,\n      minTimeoutInMs: 1000,\n      maxTimeoutInMs: 30000,\n      factor: 2,\n      randomize: true\n    }\n  },\n\n  dirs: [\"./trigger\"],\n  build: {}\n});\nexport const resolveEnvVars = undefined;"],
+  "mappings": ";;;;;;;;;;;;AAAA;AAEA,IAAO,yBAAQ,aAAa;AAAA,EAC1B,SAAS,QAAQ,IAAI,uBAAuB;AAAA,EAC5C,SAAS;AAAA,EACT,UAAU;AAAA,EACV,aAAa;AAAA,EAEb,SAAS;AAAA,IACP,cAAc;AAAA,IACd,SAAS;AAAA,MACP,aAAa;AAAA,MACb,gBAAgB;AAAA,MAChB,gBAAgB;AAAA,MAChB,QAAQ;AAAA,MACR,WAAW;AAAA,IACb;AAAA,EACF;AAAA,EAEA,MAAM,CAAC,WAAW;AAAA,EAClB,OAAO,CAAC;AACV,CAAC;AACM,IAAM,iBAAiB;",
+  "names": []
+}

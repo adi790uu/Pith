@@ -3,10 +3,18 @@ import { db } from "@/lib/db/client";
 import { linkPacks, sourceLinks } from "@/lib/db/schema";
 import {
   type JobStep,
+  type JobStepStatus,
   type LinkPack,
+  type LinkPackStatus,
   type SourceLink,
   phaseOneJobSteps
 } from "@/lib/domain/packs";
+
+const TERMINAL_PACK_STATUSES: LinkPackStatus[] = ["ready", "failed", "draft"];
+
+export function isTerminalPackStatus(status: LinkPackStatus): boolean {
+  return TERMINAL_PACK_STATUSES.includes(status);
+}
 
 type LinkPackRow = typeof linkPacks.$inferSelect;
 type SourceLinkRow = typeof sourceLinks.$inferSelect;
@@ -121,6 +129,73 @@ export type CreatePackInput = {
   description?: string;
   urls: string[];
 };
+
+export async function getPackById(packId: string): Promise<LinkPack | null> {
+  const [pack] = await db
+    .select()
+    .from(linkPacks)
+    .where(eq(linkPacks.id, packId))
+    .limit(1);
+
+  if (!pack) return null;
+
+  const sources = await db
+    .select()
+    .from(sourceLinks)
+    .where(eq(sourceLinks.linkPackId, pack.id));
+
+  return mapPack(pack, sources);
+}
+
+export async function listSourceLinksForPack(
+  packId: string
+): Promise<Array<{ id: string; url: string }>> {
+  const rows = await db
+    .select({ id: sourceLinks.id, url: sourceLinks.url })
+    .from(sourceLinks)
+    .where(eq(sourceLinks.linkPackId, packId));
+  return rows;
+}
+
+export async function setPackStatus(
+  packId: string,
+  status: LinkPackStatus,
+  progress?: number
+): Promise<void> {
+  await db
+    .update(linkPacks)
+    .set({
+      status,
+      ...(typeof progress === "number" ? { progress } : {}),
+      updatedAt: new Date()
+    })
+    .where(eq(linkPacks.id, packId));
+}
+
+export async function setSourceStatus(
+  sourceId: string,
+  status: JobStepStatus
+): Promise<void> {
+  await db
+    .update(sourceLinks)
+    .set({ status })
+    .where(eq(sourceLinks.id, sourceId));
+}
+
+export async function persistExtractedSource(input: {
+  sourceId: string;
+  title?: string;
+  extractedContent: unknown;
+}): Promise<void> {
+  await db
+    .update(sourceLinks)
+    .set({
+      status: "done",
+      title: input.title,
+      extractedContent: input.extractedContent
+    })
+    .where(eq(sourceLinks.id, input.sourceId));
+}
 
 export async function createPack(input: CreatePackInput): Promise<LinkPack> {
   const hasLinks = input.urls.length > 0;

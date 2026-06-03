@@ -1,0 +1,104 @@
+{
+  "build": {
+  },
+  "cliPackageVersion": "4.4.6",
+  "config": {
+    "dirs": [
+      "./trigger"
+    ],
+    "project": "proj_yqcttvzmnqvxqoqyochs"
+  },
+  "configPath": "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/trigger.config.mjs",
+  "contentHash": "d37e6502e86beae5b600603e81d710a2",
+  "customConditions": [
+  ],
+  "deploy": {
+    "env": {
+    }
+  },
+  "environment": "dev",
+  "externals": [
+    {
+      "name": "import-in-the-middle",
+      "version": "1.15.0"
+    }
+  ],
+  "files": [
+    {
+      "entry": "trigger/extract-pack.ts",
+      "out": "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/trigger/extract-pack.mjs"
+    }
+  ],
+  "indexWorkerEntryPoint": "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/node_modules/trigger.dev/dist/esm/entryPoints/dev-index-worker.mjs",
+  "otelImportHook": {
+    "include": [
+    ]
+  },
+  "outputHashes": {
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/chunk-244PAGAH.mjs": "MKUfkr/RxtE",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/chunk-244PAGAH.mjs.map": "5cjM5D5eV/w",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/chunk-BSH2TD44.mjs": "CZ5PF0JHUs8",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/chunk-BSH2TD44.mjs.map": "s44f3ZLy2qk",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/chunk-CSZJHO6W.mjs": "D1e1zPvmUyI",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/chunk-CSZJHO6W.mjs.map": "J374CngU1cQ",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/chunk-IB4V73K4.mjs": "Z5jAUjgrZzo",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/chunk-IB4V73K4.mjs.map": "fhm3KjIkXa0",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/chunk-P6EFVHPM.mjs": "I4xZQTBb9us",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/chunk-P6EFVHPM.mjs.map": "96rjJooKUdg",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/chunk-Q4DP3R4W.mjs": "CNui22f2LH4",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/chunk-Q4DP3R4W.mjs.map": "RaktTLRo7rE",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/chunk-USHNXJ63.mjs": "RkI7ln77K/4",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/chunk-USHNXJ63.mjs.map": "LMPzUuAiOIM",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/chunk-WJMVWNOE.mjs": "sodVrw8Rs5s",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/chunk-WJMVWNOE.mjs.map": "OIcd4Wn4cW8",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/chunk-YIPLCN43.mjs": "S5+gCK2FRtw",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/chunk-YIPLCN43.mjs.map": "lClc2UqpqQw",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/crypto.node-FURLATZW.mjs": "zGJ8Kk+9yxY",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/crypto.node-FURLATZW.mjs.map": "0b4tlwmkM3g",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/esm-NUWTWICG.mjs": "UjRQPDYTd2I",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/esm-NUWTWICG.mjs.map": "VON93E1In1A",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/getMachineId-bsd-ICCT6NPV.mjs": "LJHfHsAvj5I",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/getMachineId-bsd-ICCT6NPV.mjs.map": "MEVdITbbMCE",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/getMachineId-darwin-UP5KMLAI.mjs": "ZCtsOQWqqIk",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/getMachineId-darwin-UP5KMLAI.mjs.map": "hd3Uo5mbO8o",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/getMachineId-linux-P4XYM4UK.mjs": "nc6O1EA13f4",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/getMachineId-linux-P4XYM4UK.mjs.map": "LR3Lh4qLcJM",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/getMachineId-unsupported-BPADDXCQ.mjs": "NTJ9Kvti624",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/getMachineId-unsupported-BPADDXCQ.mjs.map": "2eHyOg8TCJ4",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/getMachineId-win-CJOVSEAP.mjs": "E/NYVdqqvSI",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/getMachineId-win-CJOVSEAP.mjs.map": "p2vMLwR5uFk",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/node_modules/trigger.dev/dist/esm/entryPoints/dev-index-worker.mjs": "Lsoi+zsXj4o",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/node_modules/trigger.dev/dist/esm/entryPoints/dev-index-worker.mjs.map": "KbYDobosdYQ",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/node_modules/trigger.dev/dist/esm/entryPoints/dev-run-worker.mjs": "uogFG4QW8YI",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/node_modules/trigger.dev/dist/esm/entryPoints/dev-run-worker.mjs.map": "vwXtss3QBX0",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/s2s-R5MD22EM.mjs": "dWZIrBK2MZ0",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/s2s-R5MD22EM.mjs.map": "m9pZ2T5fXwA",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/trigger.config.mjs": "1bL2lx0qNn4",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/trigger.config.mjs.map": "en9qPjzqReA",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/trigger/extract-pack.mjs": "l7OAUUXZuvs",
+    "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/trigger/extract-pack.mjs.map": "D3yrlAxqYTg"
+  },
+  "outputPath": "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr",
+  "packageVersion": "4.4.6",
+  "runWorkerEntryPoint": "/Users/adi/Desktop/Pith/.trigger/tmp/build-deeNWr/node_modules/trigger.dev/dist/esm/entryPoints/dev-run-worker.mjs",
+  "runtime": "node",
+  "sources": {
+    "package.json": {
+      "contentHash": "2911df290b78d03fd2aa5c247cc2d7bc",
+      "contents": "eJx1U8tygzAMvOcrGM7BPELzOuXQ/gYzxFaJG7AZ2zBtMvn3+gGG0PRm7a6EtBL3VRCErGwgPAZhS9UlXBukByEpZwZMUIoSh7aC9qUyUiU6sJDEgrZKauiuQw0Q6E0Wg28VmPfaweeO1sQTLhooqUqhPOWigaopswxI8wrQiKufFvAF8NWQSuIgihj/aKhPJOdjBQyE6zYkgt5uNURXqgKPT9KGVq+UIzwJ205eliqLacXD+kGgBUaAYQozU064BnGNzYBfBg6LHcpRNlY+MeCMlKo8lxJiCULbX4N0ytT7b5RK0KoCgbS1sSR2/iLXtbajQtsCgvIhNZtSx565aCyZoDyf2LrDlEAkoMRqpLf7iWcl49QusHhDCdp7XI/kvrXVsJdPddLDHzwivHnB3birv0FZjtK5pf37a1fnZvgDe7bjZE5FxowTu94iy1CazJx39KLd9BX93HW2tFWfwuDbRm/MD+Uu1zIHlO7QgogwZ5+0iv6xcTbg39Fsb/b3G9ay010Z11aP1S/4PgXN"
+    },
+    "trigger.config.ts": {
+      "contentHash": "d6a67ffb8387019ca36beaa46e6f4bfe",
+      "contents": "eJxVkE9rgzAYxu9+ipecNijq1ps9dKN1xbGxId5Gkcy8umyaSHyVsuJ3X0yV0UsIv+dPHiKbVhuCMwgspcKdVqWsYITS6AbYAxlZVWh8gUPQiZ9gWLON5+HJhWyE9zVdRW/OHkBr9DcWFE2XArvORzX4WZocDnGav6dvz/Euy9P4CbZbYJM5byV95bUueM1WtsD0imSDETClBTpU6+oFB6wtk6rUjjX8tO8NJ6lVBOswdFG0m7GLYBoCgIp/1igStcchAjI9rhyfty821/VIhE1LNrteLVSqzA7RPSXq1Qp34eWVOXGl2QH/YskL0iaC+wUYroRu5C9eVjg62nOcDEIaW/DB/GD+cHb0xtuN9wdeVX4r"
+    },
+    "trigger/extract-pack.ts": {
+      "contentHash": "38d9a300f0ef94da714cd6b6fd1d50f6",
+      "contents": "eJytlVtr2zAUx9/zKQ5+slfXSVs6RkJ26dbCYIOyPo49aLbiiDiSkeQ2oeS79+hi2W69LoO9mXP96X+kY7athdTwCJUoSypT0ERt4AArKbYQfdSSGXNW0PupKjbT+4toMWFtDt1pSXL9SWqWV7TLmlbs99Q7meBT4gJ6qROAiil9JxqZ02+Mb9SNkLck36ToqalU6Lx2BWjhooxHUW2C7jTRjfIG53WmyRBB0loopoVkVE1rTFSIMKE7y6D3NQXfwxS9JftKkAKWls5Efy3moFABXi4mhy4xF1zp9uwWxxIozDTixSadYWrkQ05NrVPlgiJDvSW7L40kRps5vJ3NjE02+E3UnucQ1w5lPoKXwPK9BQTP8ehRUf0l+MSF9buJZoyvRByhPjgEXoLjgG46UdqrkeAxu9oqHIw8EKb/MLLYJSeuK1tB7POyivJSr2G5XMIs8dSB64FIHkemAKyJAi5COy1avOdsroCDGdwFz5BCVEiyMnmzEC6pbiQPhVKopcA2iqLAsxRWhFX2Ew4u4+AkeLVLKx8vsdXZeStbRXVXHWWbLYLZtelsTmEtNKnQOFTMV1sJCbGL+8l4QXepj/sFYhVSKNfmfsdJp7DLQZBSIskVURRbnJ0vRt0/CC+N/+LduP+KIocJ+E70OpOi4UXsA2HY4wRiiwlTd64E3gy7+LTjBjmQeAjzskB/CfjrlzFTBZ8VNyXaCQFouQ9CwfAx2/m4msPV1pZsZBV6t93Ht1XctQA/KrtOAlrPrZmu6LyDyKyhHxFcnwXXOPBecIg69Mi6O3iCg+/sg5UQiD2VeWy9nn4Qxx/jQUjkawZ0WTCOcB4gJzpfQ0ylFDLpdfePZQjvRrXFcxF7YW0WMDQSnlN8EdfW8ME5sjZwDnd2h/suL8Sw5ji6cS273fOfVMErEzz43Xd5wtEJ/v1mO42iTs3+8jJbuLeIhgv41Wfnyx63QNvt+S+rs6Scmn+ffdeXl8nYz+r5Pwpnv61xi9LeD2EUw1c7lvgwMRlPMuXPcg=="
+    },
+    "tsconfig.json": {
+      "contentHash": "f18d9f51eee1f54cf5485c51e10b0fde",
+      "contents": "eJxlkc1ugzAQhO88BeKIGqg49lSpyqFRo0rtsYoqg7eJG//JXigVyrvXNoYEekLzze54dxmSNM0aJTTjYF41MiVt9pAODjsDiTkCOp1t36v7qsruRs5Z7eBHEE5SJaIzioIhGFJzuFKwoT/IQ0whnKufnX/ui3ALkdoz0y+sfjpBc3YWmnZ20LAGl0yqrWArBnavaMvhWboxlF6aIlh+JbASeswW/A2s4q2/gq+oW0ndWaYS480OdlbJ/ZRyk8ycSxDo6Nml+W17n2iANLjxYmqSjQEBEglfNmjeHln4F9OZh/j1WxMRVggLRHxZ3FYTPF1/pAOPZX6T5UDhQFSHZAq4+HY/FG8pzPXhnQ3IrqAF2mn0PC/z/3LerPBNJf5qsOWqdLQodCs7ifNn0K8HUBQ+RTysL0suyR8KkbZ+"
+    }
+  },
+  "target": "dev"
+}
